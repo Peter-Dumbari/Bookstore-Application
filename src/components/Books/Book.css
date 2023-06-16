@@ -1,0 +1,39 @@
+.book_container {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.book_inner_container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 97%;
+  background-color: #fff;
+  padding: 1.2rem;
+}
+
+.percentage_display {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.percentage_innercontainer {
+  display: flex;
+  align-items: center;
+}
+
+.Oval-2 {
+  width: 4.25rem;
+  height: 4.25rem;
+  border-style: solid;
+  border-width: 5px;
+  border-image-source: linear-gradient(to bottom, var(--medium-blue), #379cf6);
+  border-image-slice: 1;
+}
+
+.current_chapter {
+  display: flex;
+  flex-direction: column;
+}
