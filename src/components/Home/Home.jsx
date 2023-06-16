@@ -1,8 +1,15 @@
 import React from 'react';
-// import './Home.css';
+import Listofbooks from '../ListOfBooks/Listofbooks';
+import Createbookform from '../CreateBook/Createbookform';
+import './Home.css';
 
 function Home() {
-  return <div>Home</div>;
+  return (
+    <div className="home-container">
+      <Listofbooks />
+      <Createbookform />
+    </div>
+  );
 }
 
 export default Home;
