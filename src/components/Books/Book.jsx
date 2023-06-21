@@ -1,13 +1,20 @@
 import React from 'react';
 import './Book.css';
 import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
 import Buttons from '../Buttons/Button';
+import { removeBook } from '../../redux/books/booksSlice';
 
 function Book({
-  key, title, category, author,
+  itemid, title, category, author,
 }) {
+  const dispatch = useDispatch();
+
+  const handleRemove = (id) => {
+    dispatch(removeBook(id));
+  };
   return (
-    <div className="book_container" key={key}>
+    <div className="book_container" key={itemid}>
       <div className="book_inner_container">
         <div className="functionalities">
           <span className="category">{category}</span>
@@ -15,7 +22,7 @@ function Book({
           <span className="author">{author}</span>
           <div className="functions">
             <Buttons title="Comments" />
-            <Buttons title="Remove" />
+            <Buttons title="Remove" onclick={() => handleRemove(itemid)} />
             <Buttons title="Edit" />
           </div>
         </div>
@@ -39,7 +46,7 @@ function Book({
 }
 
 Book.propTypes = {
-  key: PropTypes.number.isRequired,
+  itemid: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   category: PropTypes.string.isRequired,
   author: PropTypes.string.isRequired,
