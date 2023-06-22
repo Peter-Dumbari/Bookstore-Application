@@ -6,15 +6,12 @@ import Buttons from '../Buttons/Button';
 import { removeBook } from '../../redux/books/booksSlice';
 
 function Book({
-  itemid, title, category, author,
+  id, title, category, author,
 }) {
   const dispatch = useDispatch();
 
-  const handleRemove = (id) => {
-    dispatch(removeBook(id));
-  };
   return (
-    <div className="book_container" key={itemid}>
+    <div className="book_container" key={id}>
       <div className="book_inner_container">
         <div className="functionalities">
           <span className="category">{category}</span>
@@ -22,7 +19,7 @@ function Book({
           <span className="author">{author}</span>
           <div className="functions">
             <Buttons title="Comments" />
-            <Buttons title="Remove" onclick={() => handleRemove(itemid)} />
+            <Buttons title="Remove" onclick={() => dispatch(removeBook(id))} />
             <Buttons title="Edit" />
           </div>
         </div>
@@ -46,7 +43,7 @@ function Book({
 }
 
 Book.propTypes = {
-  itemid: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   category: PropTypes.string.isRequired,
   author: PropTypes.string.isRequired,

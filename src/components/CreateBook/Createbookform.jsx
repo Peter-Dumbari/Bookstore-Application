@@ -10,14 +10,15 @@ function Createbookform() {
   const [category, setCategory] = useState('');
   const dispatch = useDispatch();
 
+  const id = uuidv4();
   const formData = {
-    item_id: uuidv4(),
+    item_id: id,
     title,
     author,
     category,
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     dispatch(addBook(JSON.stringify(formData)));
     setTitle('');
     setAuthor('');
@@ -32,12 +33,14 @@ function Createbookform() {
           type="text"
           placeholder="Book title"
           onChange={(e) => setTitle(e.target.value)}
+          value={title}
           required
         />
         <select
           name="category"
           id="category"
           onChange={(e) => setCategory(e.target.selectedOptions[0].value)}
+          value={category}
         >
           <option value="Fiction">Fiction</option>
           <option value="Nonfiction">Nonfiction</option>
@@ -46,6 +49,7 @@ function Createbookform() {
           type="text"
           placeholder="Author"
           onChange={(e) => setAuthor(e.target.value)}
+          value={author}
           required
         />
         <button
