@@ -5,22 +5,21 @@ import Loader from '../Loader/Loader';
 
 function Listofbooks() {
   const { books, loading } = useSelector((state) => state.books);
-  console.log(books);
 
   return (
     <div className="Books">
       {loading ? (
         <Loader />
       ) : (
-        books.map((book) => (
+        Object.entries(books).map(([id, book]) => book.map((bookItem) => (
           <Book
-            key={book.item_id}
-            id={book.item_id}
-            title={book.title}
-            category={book.category}
-            author={book.author}
+            key={id}
+            id={id}
+            title={bookItem.title}
+            category={bookItem.category}
+            author={bookItem.author}
           />
-        ))
+        )))
       )}
     </div>
   );

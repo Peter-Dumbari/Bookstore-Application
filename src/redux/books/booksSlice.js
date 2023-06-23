@@ -14,17 +14,28 @@ export const getBooks = createAsyncThunk('books/fetchBooks', async () => {
   const response = await axios(`${BaseAPI}${token}/books`);
   return response.data;
 });
+export const addBook = createAsyncThunk(
+  'books/addBook',
+  async (book, thunkAPI) => {
+    const res = await axios.post(`${BaseAPI}${token}/books`, JSON.parse(book));
+    if (res.status === 201) {
+      return thunkAPI.dispatch(getBooks());
+    }
+    return res.error;
+  },
+);
 
-export const addBook = createAsyncThunk('books/addBook', async (book) => {
-  const res = await axios.post(`${BaseAPI}${token}/books`, JSON.parse(book));
-  return JSON.parse(res.config.data);
-});
-
-export const removeBook = createAsyncThunk('books/removeBook', async (id) => {
-  const res = await axios.delete(`${BaseAPI}${token}/books/${id}`);
-  console.log(res);
-  return id;
-});
+export const removeBook = createAsyncThunk(
+  'books/removeBook',
+  async (id, thunkAPI) => {
+    const res = await axios.delete(`${BaseAPI}${token}/books/${id}`);
+    if (res.status === 201) {
+      return thunkAPI.dispatch(getBooks());
+    }
+    console.log(res);
+    return res.config.data;
+  },
+);
 const booksSlice = createSlice({
   name: 'books',
   initialState,
@@ -34,7 +45,7 @@ const booksSlice = createSlice({
     },
     [getBooks.fulfilled]: (state, action) => {
       state.loading = false;
-      state.books = Object.values(action.payload).flat();
+      state.books = action.payload;
     },
     [getBooks.rejected]: (state) => {
       state.loading = false;
@@ -42,9 +53,8 @@ const booksSlice = createSlice({
     [addBook.pending]: (state) => {
       state.loading = true;
     },
-    [addBook.fulfilled]: (state, action) => {
+    [addBook.fulfilled]: (state) => {
       state.loading = false;
-      state.books.push(action.payload);
     },
     [addBook.rejected]: (state) => {
       state.loading = false;
@@ -52,12 +62,8 @@ const booksSlice = createSlice({
     [removeBook.pending]: (state) => {
       state.loading = true;
     },
-    [removeBook.fulfilled]: (state, action) => {
-      console.log(action);
+    [removeBook.fulfilled]: (state) => {
       state.loading = false;
-      state.books = state.books.filter(
-        (book) => book.item_id !== action.payload,
-      );
     },
     [removeBook.rejected]: (state) => {
       state.loading = false;
