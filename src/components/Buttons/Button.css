@@ -1,0 +1,29 @@
+button {
+  height: 1.188rem;
+  font-family: RobotoSlab, sans-serif;
+  font-size: 0.875rem;
+  font-weight: 300;
+  font-style: normal;
+  line-height: normal;
+  color: #4386bf;
+  border: none;
+  background: none;
+  padding: 0;
+  text-align: center;
+  cursor: pointer;
+}
+
+.newStyle {
+  background-color: var(--primary-color);
+  padding: 15px;
+  text-align: center;
+  color: white;
+  width: 80%;
+  font-family: RobotoSlab-Light, sans-serif;
+  height: auto;
+}
+
+button:disabled {
+  color: #dcdcdc;
+  cursor: not-allowed;
+}

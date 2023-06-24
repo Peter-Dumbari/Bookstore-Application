@@ -1,17 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Tilt+Warp&display=swap');
+
+:root {
+  --primary-color: #0290ff;
+}
+
+.nav {
+  border-bottom: 2px solid #dcdcdc;
+  position: sticky;
+}
+
 .navbar-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 6rem;
+  padding: 0.5rem 6rem;
 }
 
 .logo {
+  width: 15rem;
+  height: 2.313rem;
+  margin: 0.375rem 2.938rem 0.125rem 0;
+  font-family: Montserrat-Bold, sans-serif;
   font-size: 1.875rem;
   font-weight: bold;
   font-stretch: normal;
   font-style: normal;
   line-height: normal;
   letter-spacing: normal;
+  color: var(--primary-color);
 }
 
 .links {
@@ -29,12 +45,28 @@
 
 .navbar-link {
   text-decoration: none;
-  color: #000;
-  font-size: 1.2rem;
-  font-weight: 500;
+  width: 3.688rem;
+  height: 1rem;
+  margin: 1.125rem 2.563rem 0.688rem 0;
+  font-family: Montserrat-regular, sans-serif;
+  font-size: 0.813rem;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: 1.9px;
+  color: #dcdcdc;
 }
 
-.fa-user-circle {
-  font-size: 3rem !important;
-  color: #000;
+.active {
+  color: #121212;
+}
+
+.fa-circle-user {
+  background-color: var(--primary-color);
+  color: white;
+  font-size: 2.3rem;
+  border-radius: 50px;
+  border: 5px solid;
+  cursor: pointer;
 }

@@ -1,6 +1,54 @@
+
+.form-container h1 {
+  width: 10.875rem;
+  height: 1.5rem;
+  font-family: Montserrat-Bold, sans-serif;
+  font-size: 1.25rem;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.18px;
+  color: #888;
+}
+
 .addbook_form {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
+  padding: 0;
+  gap: 10px;
+}
+
+.input_container {
+  display: flex;
+  width: 250rem;
+  justify-content: space-between;
+}
+
+.input_container input {
+  width: 25%;
+  padding: 0.5rem;
+  outline: none;
+  border: 1px solid #e8e8e8;
+  font-size: 1rem;
+}
+
+.input_container select {
+  width: 25%;
+  padding: 0.5rem;
+  outline: none;
+  border: 1px solid #e8e8e8;
+  font-size: 1rem;
+}
+
+.input_container input:focus {
+  border: 1px solid #379cf6;
+}
+
+.button_holder {
+  width: 50%;
+  padding: 0;
+  margin: 0;
 }
