@@ -47,9 +47,9 @@ function Createbookform() {
             value={category}
           >
             <option value="Category">Fiction</option>
-            <option value="Fiction">Nonfiction</option>
-            <option value="Non-Fiction">Science Fiction</option>
-            <option value="Fiction">Economy</option>
+            <option value="Non-Fiction">Non-Fiction</option>
+            <option value="Science Fiction">Science Fiction</option>
+            <option value="Economy">Economy</option>
           </select>
           <input
             type="text"
