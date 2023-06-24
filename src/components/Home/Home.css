@@ -1,6 +1,14 @@
 .home-container {
-  height: 100%;
+  position: relative;
+  height: 83vh;
   padding: 2rem 6rem;
-  background-color: #d1d0d0;
+  background-color: #fafafa;
   overflow: hidden;
+}
+
+.home-inner-container {
+  height: 60vh;
+  overflow: hidden;
+  overflow-y: scroll;
+  border-bottom: 1px solid #e8e8e8;
 }

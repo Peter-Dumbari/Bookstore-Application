@@ -3,6 +3,7 @@ import './Createbookform.css';
 import { v4 as uuidv4 } from 'uuid';
 import { useDispatch } from 'react-redux';
 import { addBook } from '../../redux/books/booksSlice';
+import Buttons from '../Buttons/Button';
 
 function Createbookform() {
   const [title, setTitle] = useState('');
@@ -19,47 +20,52 @@ function Createbookform() {
   };
 
   const handleSubmit = async () => {
-    dispatch(addBook(JSON.stringify(formData)));
-    setTitle('');
-    setAuthor('');
-    setCategory('');
+    if (title !== '' || author !== '' || category !== '') {
+      dispatch(addBook(JSON.stringify(formData)));
+      setTitle('');
+      setAuthor('');
+      setCategory('');
+    }
   };
 
   return (
     <div className="form-container">
       <h1>Add Book</h1>
       <form className="addbook_form">
-        <input
-          type="text"
-          placeholder="Book title"
-          onChange={(e) => setTitle(e.target.value)}
-          value={title}
-          required
-        />
-        <select
-          name="category"
-          id="category"
-          onChange={(e) => setCategory(e.target.selectedOptions[0].value)}
-          value={category}
-        >
-          <option value="Fiction">Fiction</option>
-          <option value="Nonfiction">Nonfiction</option>
-        </select>
-        <input
-          type="text"
-          placeholder="Author"
-          onChange={(e) => setAuthor(e.target.value)}
-          value={author}
-          required
-        />
-        <button
-          type="button"
-          onClick={() => {
+        <div className="input_container">
+          <input
+            type="text"
+            placeholder="Book title"
+            onChange={(e) => setTitle(e.target.value)}
+            value={title}
+            required
+          />
+          <select
+            name="category"
+            id="category"
+            onChange={(e) => setCategory(e.target.selectedOptions[0].value)}
+            value={category}
+          >
+            <option value="Category">Fiction</option>
+            <option value="Fiction">Nonfiction</option>
+            <option value="Non-Fiction">Science Fiction</option>
+            <option value="Fiction">Economy</option>
+          </select>
+          <input
+            type="text"
+            placeholder="Author"
+            onChange={(e) => setAuthor(e.target.value)}
+            value={author}
+            required
+          />
+        </div>
+        <Buttons
+          title="Add Book"
+          onclick={() => {
             handleSubmit();
           }}
-        >
-          Add Book
-        </button>
+          newStyle="newStyle"
+        />
       </form>
     </div>
   );

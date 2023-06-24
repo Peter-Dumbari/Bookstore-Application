@@ -4,7 +4,7 @@ import './Navbar.css';
 
 function Navbar() {
   return (
-    <nav>
+    <nav className="nav">
       <div className="navbar-container">
         <div className="links">
           <h1 className="logo">Bookstore CMS</h1>
