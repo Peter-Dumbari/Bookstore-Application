@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Createbookform.css';
 import { v4 as uuidv4 } from 'uuid';
 import { useDispatch } from 'react-redux';
@@ -8,6 +8,7 @@ import Buttons from '../Buttons/Button';
 function Createbookform() {
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
+  const [disable, setDisable] = useState(true);
   const [category, setCategory] = useState('');
   const dispatch = useDispatch();
 
@@ -25,8 +26,18 @@ function Createbookform() {
       setTitle('');
       setAuthor('');
       setCategory('');
+      setDisable(true);
     }
   };
+
+  useEffect(() => {
+    const disabler = () => {
+      if (title !== '' && author !== '' && category !== '') {
+        setDisable(false);
+      }
+    };
+    disabler();
+  }, [title, author, category]);
 
   return (
     <div className="form-container">
@@ -62,6 +73,7 @@ function Createbookform() {
         </div>
         <Buttons
           title="Add Book"
+          disabled={disable}
           onclick={() => {
             handleSubmit();
           }}

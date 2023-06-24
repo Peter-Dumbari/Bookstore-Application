@@ -27,3 +27,8 @@ button:disabled {
   color: #dcdcdc;
   cursor: not-allowed;
 }
+
+.newStyle:disabled {
+  background-color: #71b4ef;
+  cursor: not-allowed;
+}
