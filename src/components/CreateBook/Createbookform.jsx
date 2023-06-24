@@ -46,7 +46,8 @@ function Createbookform() {
             onChange={(e) => setCategory(e.target.selectedOptions[0].value)}
             value={category}
           >
-            <option value="Category">Fiction</option>
+            <option value="Category">Category</option>
+            <option value="Fiction">Fiction</option>
             <option value="Non-Fiction">Non-Fiction</option>
             <option value="Science Fiction">Science Fiction</option>
             <option value="Economy">Economy</option>
