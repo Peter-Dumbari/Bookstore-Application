@@ -54,7 +54,7 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo Link](https://bookstore-820b.onrender.com/)
+- [Live Demo Link](https://bookstore-0bao.onrender.com/)
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
